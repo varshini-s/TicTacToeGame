@@ -228,6 +228,22 @@ public class TicTacToe
 		}
 		return 0;
 	}
+	
+
+	//checking if corner is available
+	public int cornerMove()
+	{
+		int[] corners = {1,3,7,9};
+
+		for(int corner:corners)
+		{
+			if(isEmpty(corner))
+			{
+				return corner;
+			}
+		}
+		return 0;
+	}
 	//conditions to decide computers move
 	public void computersMove()
 	{
@@ -240,6 +256,12 @@ public class TicTacToe
 		else if(blockOpponentWinMove()!=0)
 		{
 			makeMove(blockOpponentWinMove(), computerLetter);
+			changeTurn();
+
+		}
+		else if(cornerMove()!=0)
+		{
+			makeMove(cornerMove(), computerLetter);
 			changeTurn();
 
 		}
