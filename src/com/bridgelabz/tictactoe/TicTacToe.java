@@ -228,7 +228,7 @@ public class TicTacToe
 		}
 		return 0;
 	}
-	
+
 
 	//checking if corner is available
 	public int cornerMove()
@@ -313,6 +313,40 @@ public class TicTacToe
 		{
 			return false;
 		}
+	}
+
+	//playing game till someone wins or draws
+	public void playGame()
+	{
+		Scanner scanner = new Scanner(System.in);
+
+		while(gameResult!=1 && gameResult!=0 && isBoardFull()==false)
+		{
+			if(turnToPlay==0)
+			{
+				System.out.println("Your turn:");
+				System.out.println("Enter position to make a move: ");
+				int position= scanner.nextInt();
+				while(isEmpty(position)==false)
+				{
+					System.out.println("Sorry !the space is occupied,Try again");
+					position= scanner.nextInt();
+				}
+				makeMove(position, playerInput);
+				checkWinOrDraw();
+
+				changeTurn();
+			}
+			else if(turnToPlay==1)
+			{
+				System.out.println("Computer's turn:");
+				computersMove();
+				checkWinOrDraw();
+
+			}
+			showBoard();
+		}	
+
 	}
 
 
