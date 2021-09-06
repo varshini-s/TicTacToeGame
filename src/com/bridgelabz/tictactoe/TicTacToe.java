@@ -20,8 +20,7 @@ public class TicTacToe
 	public void playerInput()
 	{
 		Scanner scanner = new Scanner(System.in);
-		char playerInput =scanner.next().charAt(0);
-		playerInput=Character.toUpperCase(playerInput);
+		char playerInput =scanner.next().toUpperCase().charAt(0);
 		
 		if(playerInput=='X')
 			computerInput='O';
@@ -29,7 +28,7 @@ public class TicTacToe
 			computerInput='X';
 		else
 			System.out.println("invalid input");
-		
+		System.out.println(computerInput);
 		
 	}
 
