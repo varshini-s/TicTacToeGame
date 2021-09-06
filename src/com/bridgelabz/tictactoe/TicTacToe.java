@@ -7,6 +7,7 @@ public class TicTacToe
 
 	char[] board = new char[10];
 	char playerInput,computerLetter;
+	int turnToPlay;
 
 	public void initializeBoard()
 	{
@@ -30,7 +31,7 @@ public class TicTacToe
 		else
 			System.out.println("invalid input");
 		System.out.println(computerLetter);
-		scanner.close();
+		
 	}
 	
 	public void showBoard()
@@ -60,6 +61,26 @@ public class TicTacToe
 		
 	}
 
+	public void checkFirstPlay()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("enter user's toss choice");
+		char userTossChoice=scanner.next().toUpperCase().charAt(0);
+		int usertossValue=(userTossChoice=='H')?0:1;
+		int tossResult=(int)Math.floor(Math.random()*10)%2;
+
+		//assigning user turn as 0 and computers turn as 1
+		if(tossResult==usertossValue)
+		{
+			turnToPlay=0;
+		}
+		else
+		{
+			turnToPlay=1;
+		}
+		
+		
+	}
 	public static void main(String[] args) 
 	{
 
@@ -70,6 +91,7 @@ public class TicTacToe
 		game.initializeBoard();
 		game.playerInput();
 		game.showBoard();
+		game.checkFirstPlay();
 		
 
 	}
