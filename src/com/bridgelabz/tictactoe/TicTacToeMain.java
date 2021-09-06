@@ -12,6 +12,7 @@ public class TicTacToeMain {
 			game.playerInput();
 			game.showBoard();
 			game.decideFirstPlay();
+			game.playGame();
 
 
 

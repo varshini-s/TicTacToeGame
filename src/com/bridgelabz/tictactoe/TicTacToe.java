@@ -345,10 +345,54 @@ public class TicTacToe
 
 			}
 			showBoard();
-		}	
+
+		}
+		if(gameResult==1)
+		{
+			if(winner==0)
+			{
+				System.out.println("Player won the game!");
+			}
+			else
+			{
+				System.out.println("Computer won the game");
+			}
+		}
+
+		System.out.println("Are you intereseted in playing another game?,If yes enter 1 or enter 0");
+
+		int nextGame =scanner.nextInt();
+
+		if(nextGame==1)
+		{
+			resetGame();
+			playGame();
+		}
+		else
+		{
+
+			System.out.println("Thanks for playing!");
+		}
+
+
+
+
+	}
+	//resetting game variables to play next time
+	public void resetGame()
+	{
+		gameResult=-1;
+		initializeBoard();
+		playerInput();
+		showBoard();
+		decideFirstPlay();
 
 	}
 
 
 
-}
+}	
+
+
+
+
