@@ -244,6 +244,16 @@ public class TicTacToe
 		}
 		return 0;
 	}
+	//checking for center space of board
+	public int centreMOve()
+	{
+		if(isEmpty(5))
+		{
+			return 5;
+		}
+
+		return 0;
+	}
 	//conditions to decide computers move
 	public void computersMove()
 	{
@@ -264,6 +274,23 @@ public class TicTacToe
 			makeMove(cornerMove(), computerLetter);
 			changeTurn();
 
+		}
+		else if(centreMOve()!=0)
+		{
+			makeMove(centreMOve(), computerLetter);
+			changeTurn();
+
+		}else 
+		{
+			for(int index=1;index<board.length;index++)
+			{
+				if(isEmpty(index)==true)
+				{
+					makeMove(index, computerLetter);
+					changeTurn();
+					break;
+				}
+			}
 		}
 	}
 
