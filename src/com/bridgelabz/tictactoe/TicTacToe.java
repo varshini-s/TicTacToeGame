@@ -43,9 +43,9 @@ public class TicTacToe
 			for(int columnIndex=1;columnIndex<=3;columnIndex++)
 			{
 				
-				System.out.print(board[index++]+" ");
+				System.out.print(board[index++]+"|");
 			}
-			System.out.println();
+			System.out.print("\n------\n");
 		}
 	}
 
