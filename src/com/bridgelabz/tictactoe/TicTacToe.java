@@ -6,6 +6,7 @@ public class TicTacToe
 {
 
 	char[] board = new char[10];
+	char playerInput,computerInput;
 
 	public void initializeBoard()
 	{
@@ -16,15 +17,22 @@ public class TicTacToe
 
 	}
 	
-	public void userInput()
+	public void playerInput()
 	{
 		Scanner scanner = new Scanner(System.in);
-		char input =scanner.next().charAt(0);
-		input=Character.toUpperCase(input);
-		System.out.println(input);
+		char playerInput =scanner.next().charAt(0);
+		playerInput=Character.toUpperCase(playerInput);
+		
+		if(playerInput=='X')
+			computerInput='O';
+		else if(playerInput=='O')
+			computerInput='X';
+		else
+			System.out.println("invalid input");
+		
 		
 	}
-	
+
 	public static void main(String[] args) 
 	{
 
@@ -33,9 +41,7 @@ public class TicTacToe
 		TicTacToe game = new TicTacToe();
 		
 		game.initializeBoard();
-		game.userInput();
-		
-
+		game.playerInput();
 		
 
 	}
