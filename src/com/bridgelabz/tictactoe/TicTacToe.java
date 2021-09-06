@@ -49,11 +49,15 @@ public class TicTacToe
 		}
 	}
 	
-	public char makeMove(int location)
+	public void makeMove(int location,char player)
 	{
+		if(board[location]==' ') 
+		{
+			 board[location]=player;
+
+		}
+			
 		
-		
-		return board[location];
 	}
 
 	public static void main(String[] args) 
