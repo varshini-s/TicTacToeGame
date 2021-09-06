@@ -20,6 +20,7 @@ public class TicTacToe
 	public void playerInput()
 	{
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("enter player input");
 		char playerInput =scanner.next().toUpperCase().charAt(0);
 		
 		if(playerInput=='X')
@@ -31,6 +32,22 @@ public class TicTacToe
 		System.out.println(computerInput);
 		
 	}
+	
+	public void showBoard()
+	{
+		int index=1;
+		
+		System.out.println("Displaying board");
+		for(int rowIndex=1;rowIndex<=3;rowIndex++)
+		{
+			for(int columnIndex=1;columnIndex<=3;columnIndex++)
+			{
+				
+				System.out.print(board[index++]+" ");
+			}
+			System.out.println();
+		}
+	}
 
 	public static void main(String[] args) 
 	{
@@ -41,6 +58,7 @@ public class TicTacToe
 		
 		game.initializeBoard();
 		game.playerInput();
+		game.showBoard();
 		
 
 	}
