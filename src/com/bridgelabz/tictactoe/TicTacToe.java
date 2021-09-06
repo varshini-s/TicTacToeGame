@@ -30,7 +30,7 @@ public class TicTacToe
 		else
 			System.out.println("invalid input");
 		System.out.println(computerInput);
-		
+		scanner.close();
 	}
 	
 	public void showBoard()
