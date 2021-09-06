@@ -48,6 +48,13 @@ public class TicTacToe
 			System.out.print("\n------\n");
 		}
 	}
+	
+	public char makeMove(int location)
+	{
+		
+		
+		return board[location];
+	}
 
 	public static void main(String[] args) 
 	{
