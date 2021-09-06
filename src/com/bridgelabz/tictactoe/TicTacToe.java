@@ -162,78 +162,109 @@ public class TicTacToe
 		}
 
 	}
-	
+
 	//checking if board is fully occupied with symbols
-		public boolean isBoardFull()
-		{
-			for(int index=0;index<board.length;index++)
-			{
-				if(board[index]==' ')
-				{
-					return false;
-
-				}
-			}
-
-			return true;	
-		}
-		
-		//checking if the next move can be win move
-		public int winMove()
-		{
-			for(int index=1;index<board.length;index++)
-			{
-				if(isEmpty(index))
-				{
-					makeMove(index, computerLetter);
-					checkWinOrDraw();
-					if(gameResult==1)
-					{
-						gameResult=-1;
-						return index;
-					}
-					else
-					{
-						gameResult=-1;
-						clearSpace(index);
-
-					}
-				}
-			}
-			return 0;
-		}
-		
-		//conditions to decide computers move
-		public void computersMove()
-		{
-
-			if(winMove()!=0)
-			{
-				makeMove(winMove(), computerLetter);
-				changeTurn();
-			}
-		}
-		
-		
-		//undoing a given move,used to decide win or loose move
-		public void clearSpace(int index)
-		{
-			board[index]=' ';
-
-		}
-		
-		//checking if the given block is empty
-		public boolean isEmpty(int index)
+	public boolean isBoardFull()
+	{
+		for(int index=0;index<board.length;index++)
 		{
 			if(board[index]==' ')
 			{
-				return true;
-			}
-			else
-			{
 				return false;
+
 			}
 		}
+
+		return true;	
+	}
+
+	//checking if the next move can be win move
+	public int winMove()
+	{
+		for(int index=1;index<board.length;index++)
+		{
+			if(isEmpty(index))
+			{
+				makeMove(index, computerLetter);
+				checkWinOrDraw();
+				if(gameResult==1)
+				{
+					gameResult=-1;
+					return index;
+				}
+				else
+				{
+					gameResult=-1;
+					clearSpace(index);
+
+				}
+			}
+		}
+		return 0;
+	}
+
+	//checking to block opponents win move
+	public int blockOpponentWinMove()
+	{
+		for(int index=1;index<board.length;index++)
+		{
+			if(isEmpty(index))
+			{
+				makeMove(index, playerInput);
+				checkWinOrDraw();
+				if(gameResult==1)
+				{
+					gameResult=-1;
+					clearSpace(index);
+					return index;
+				}
+				else
+				{
+					gameResult=-1;
+					clearSpace(index);
+				}
+			}
+
+		}
+		return 0;
+	}
+	//conditions to decide computers move
+	public void computersMove()
+	{
+
+		if(winMove()!=0)
+		{
+			makeMove(winMove(), computerLetter);
+			changeTurn();
+		}
+		else if(blockOpponentWinMove()!=0)
+		{
+			makeMove(blockOpponentWinMove(), computerLetter);
+			changeTurn();
+
+		}
+	}
+
+
+	//undoing a given move,used to decide win or loose move
+	public void clearSpace(int index)
+	{
+		board[index]=' ';
+
+	}
+
+	//checking if the given block is empty
+	public boolean isEmpty(int index)
+	{
+		if(board[index]==' ')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 
 
